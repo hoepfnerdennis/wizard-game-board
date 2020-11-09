@@ -138,22 +138,33 @@ const Table: FC = () => {
             disabled={trickSum === currentRound}
             bg={trickSum === currentRound ? "gray" : colors.primary}
             onClick={allPromised}
-            >
+          >
             Angesagt
           </Button>
         </Box>
       )}
       {state === RoundState.RESULT && (
+        <>
           <Box sx={{ gridColumn: "1 / 100" }} mx={3} mt={3}>
-          <Button
-            width="100%"
-            disabled={countMade !== currentRound}
-            bg={countMade !== currentRound ? "gray" : colors.primary}
-            onClick={nextRound}
-          >
-            Nächste Runde
-          </Button>
-        </Box>
+            <Button
+              width="100%"
+              bg={colors.primary}
+              onClick={() => setState(RoundState.START)}
+            >
+              Zurück
+            </Button>
+          </Box>
+          <Box sx={{ gridColumn: "1 / 100" }} mx={3} mt={3}>
+            <Button
+              width="100%"
+              disabled={countMade !== currentRound}
+              bg={countMade !== currentRound ? "gray" : colors.primary}
+              onClick={nextRound}
+            >
+              Nächste Runde
+            </Button>
+          </Box>
+        </>
       )}
     </>
   );
