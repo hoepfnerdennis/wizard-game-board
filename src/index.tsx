@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider } from 'emotion-theming';
+import theme from '@rebass/preset'
+import StoreProvider from './store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <StoreProvider>
+        <App />
+      </StoreProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
