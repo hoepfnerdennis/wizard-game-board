@@ -136,12 +136,11 @@ const reducer: Reducer<State, Action> = (state, action) => {
           started: true,
           totalRounds: 60 / players.length,
           currentRound: 1,
-          rounds: initalState.game.rounds,
+          rounds: defaultState.game.rounds,
         },
       };
       break;
     case ActionTypes.NEW_ROUND:
-      console.log("new round");
       const currentRounds = [...state.game.rounds];
       currentRounds[currentRounds.length - 1] = currentRounds[
         currentRounds.length - 1
